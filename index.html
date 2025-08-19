@@ -20,5 +20,37 @@
       agent-id="agent_1401k314yyd6eqet1p67wwj3sfkg"
       style="position: fixed !important; bottom: 120px !important; left: 50% !important; transform: translateX(-50%) !important; z-index: 10000 !important;"
     ></elevenlabs-convai>
+
+    <script>
+  window.addEventListener("load", () => {
+    const convai = document.getElementById("meu-bot");
+
+    // abre a call sozinho (se a API interna permitir)
+    setTimeout(() => {
+      const shadow = convai.shadowRoot;
+
+      // clica no botão "Start a call"
+      shadow.querySelector("button")?.click();
+
+      // espera 1s e clica no botão do telefone
+      setTimeout(() => {
+        shadow.querySelector("button[aria-label='Start call']")?.click();
+      }, 1000);
+    }, 1000);
+  });
+</script>
+
+<style>
+  /* esconder UI padrão */
+  elevenlabs-convai {
+    position: fixed !important;
+    bottom: 30px !important;
+    left: 30px !important;
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+</style>
   </body>
 </html>
